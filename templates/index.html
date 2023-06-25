@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Publications</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <div id="pie-Chart"></div>
+    <div id="year-Histogram"></div>
+
+    {{content|safe}}
+    <script>
+
+        let yearData = [
+                    {
+                        x: {{ years| tojson }},
+                type: 'histogram',
+                    marker: {
+                    color: 'rgb(32, 178, 170)'
+                },
+                histnorm: 'count',
+                    autobinx: false,
+                        xbins: {
+                    start: 2011,
+                        end: 2023,
+                            size: 3 
+
+                }
+        }
+        ];
+
+                let yearLayout = {
+                    title: 'number of publications for years',
+                    xaxis: {
+                        title: 'years', dtick: 1
+                    },
+                    yaxis: {
+                        title: 'number of articles'
+                    }
+                };
+
+                Plotly.newPlot('year-Histogram', yearData, yearLayout);
+
+                var authors = {{ authors | tojson }};
+            var numbers = {{ numbers | tojson }};
+            var data = [{
+            values: numbers,
+            labels: authors,
+            type: 'pie'
+            }];
+
+            var layout = {
+            title: 'percentage of other authors'
+            };
+            Plotly.newPlot('pie-Chart', data, layout);    
+
+    </script>
+</body>
+
+</html>
