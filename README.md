@@ -1,4 +1,4 @@
-# Flask Application (Web Scraper and Visualization)
+# Flask Application2 (Web Scraper and Visualization)
 
 This project includes a web browser application that retrieves articles from "http://boracanbula.com.tr/" and a web application that visualizes the retrieved data.
 
