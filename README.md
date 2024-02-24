@@ -30,7 +30,6 @@ This project was created with the aim of pulling article data from a specific we
      python app.py
      ```
 
-4. Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) from your browser.
 
 ## Gains
 
